@@ -51,8 +51,8 @@ class CategoryViewController: UITableViewController {
         
         do {
             try  realm.write {
-                                realm.add(category)
-                            }
+                 realm.add(category)
+                 }
         }
         catch {
             print("Error saving category \(error)")

@@ -33,10 +33,11 @@ class ToDoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        
+
         if let item = todoItems?[indexPath.row] {
+
             cell.textLabel?.text = item.title
-            
+
             //Ternery Operator
             //value = condition ? valueIfTrue : valueIfFalse
             cell.accessoryType = item.done ? .checkmark : .none
@@ -44,12 +45,14 @@ class ToDoListViewController: UITableViewController {
             cell.textLabel?.text = "No Items Added"
         }
         
-        
+    
         return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoItems?.count ?? 1
+       
     }
     
     //MARK: - Tableview Delegate Methods
@@ -92,7 +95,6 @@ class ToDoListViewController: UITableViewController {
                         let newItem = Item()
                         newItem.title = textField.text!
                         newItem.dateCreated = Date()
-                        print(newItem.dateCreated)
                         currentCategory.items.append(newItem)
                         }
                     
